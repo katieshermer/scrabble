@@ -1,8 +1,17 @@
 class Scrabble
 
   def score(word)
-    1
+    return 0 if word.nil?
+    word_score(word)
   end
+
+  def word_score(word)
+    num_score = word.split("").map do |letter|
+      point_values[letter.upcase]
+    end
+    num_score.sum
+  end
+
 
   def point_values
     {
